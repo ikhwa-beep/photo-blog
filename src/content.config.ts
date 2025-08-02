@@ -1,10 +1,14 @@
 // 1. Import utilities from `astro:content`
 import { defineCollection, z } from "astro:content";
 import { glob } from "astro/loaders";
+import Sojourn from "./pages/sojourn.astro";
+import Crusade from "./pages/crusade.astro";
+import Memories from "./pages/memories.astro";
+import Syams from "./pages/syams.astro";
 // 2. Define a `type` and `schema` for each collection
-const muses = defineCollection({
+const sojourn = defineCollection({
   // type: "content", // v2.5.0 and later
-  loader: glob({ pattern: "**\/[^_]*.mdx", base: "./src/content/muses" }),
+  loader: glob({ pattern: "**\/[^_]*.mdx", base: "./src/content/sojourn" }),
   schema: z.object({
     title: z.string(),
     tags: z.array(z.string()),
@@ -21,9 +25,9 @@ const muses = defineCollection({
   }),
 });
 
-const short_form = defineCollection({
+const crusade = defineCollection({
   // type: "content", // v2.5.0 and later
-  loader: glob({ pattern: "**\/[^_]*.mdx", base: "./src/content/short_form" }),
+  loader: glob({ pattern: "**\/[^_]*.mdx", base: "./src/content/crusade" }),
   schema: z.object({
     title: z.string(),
     tags: z.array(z.string()),
@@ -40,9 +44,9 @@ const short_form = defineCollection({
   }),
 });
 
-const long_form = defineCollection({
+const memories = defineCollection({
   // type: "content", // v2.5.0 and later
-  loader: glob({ pattern: "**\/[^_]*.mdx", base: "./src/content/long_form" }),
+  loader: glob({ pattern: "**\/[^_]*.mdx", base: "./src/content/memories" }),
   schema: z.object({
     title: z.string(),
     tags: z.array(z.string()),
@@ -59,9 +63,9 @@ const long_form = defineCollection({
   }),
 });
 
-const zeitweilig = defineCollection({
+const syams = defineCollection({
   // type: "content", // v2.5.0 and later
-  loader: glob({ pattern: "**\/[^_]*.mdx", base: "./src/content/zeitweilig" }),
+  loader: glob({ pattern: "**\/[^_]*.mdx", base: "./src/content/syams" }),
   schema: z.object({
     title: z.string(),
     tags: z.array(z.string()),
@@ -178,10 +182,10 @@ const cv = defineCollection({
 });
 // 3. Export a single `collections` object to register your collection(s)
 export const collections = {
-  muses,
-  short_form,
-  long_form,
-  zeitweilig,
+  Sojourn,
+  Crusade,
+  Memories,
+  Syams,
   authors,
   cv,
 };
